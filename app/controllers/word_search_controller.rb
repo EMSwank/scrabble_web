@@ -1,7 +1,6 @@
 class WordSearchController < ApplicationController
   def create
-    
-    binding.pry
-    
+    @validator = WordValidator.new(params[:word_search])
+    redirect_to root_path
   end
 end

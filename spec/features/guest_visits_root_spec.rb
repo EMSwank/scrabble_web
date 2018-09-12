@@ -5,7 +5,7 @@ describe "A visitor" do
     it "fills in text box and can validate a valid word" do
       visit '/'
 
-      fill_in "text-box",	with: "foxes"
+      fill_in :word_search,	with: "foxes"
       click_on "Validate Word"
 
       expect(page).to have_content("'foxes' is a valid word and its root from is 'fox'") 
