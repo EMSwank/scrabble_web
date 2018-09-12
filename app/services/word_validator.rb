@@ -14,7 +14,14 @@ class WordValidator
     headers = {'app_id' => ENV['OED_APP_ID'], 'app_key' => ENV['OED_API_KEY']}
     response = @conn.get {|request| request.headers = headers}
     JSON.parse(response.body, headers: true)
+
+    
   end
 
-
+  def messages(find_word)
+    if JSON::ParserError
+     "#{@word} is a valid word and its root form is #{find_word[:results][:inflectionOf][:text]}"
+    else
+      "#{@word} is not a valid word"
+  end
 end
